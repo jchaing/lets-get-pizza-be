@@ -22,13 +22,7 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
-
-const whitelist = ['https://plza.netlify.app'];
-const corsOptions = {
-  origin: whitelist,
-};
-
-server.use(cors(corsOptions));
+server.use(cors());
 
 //Authorization
 server.use("/api/auth/user", userauthRouter);
