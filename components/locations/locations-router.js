@@ -262,9 +262,8 @@ const userGeoLocation = async(req) => {
   if(req.query.search) {
     //Geocoding- https://developer.mapquest.com/documentation/geocoding-api/address/get/
     const geo = await axios.get(
-      `https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.MAPQUEST_API_KEY}&location=${req.query.search}`
+      `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.MAPQUEST_API_KEY}&location=${req.query.search}`
     );
-    console.log(req.query.search);
     const location_info = geo.data.results[0].locations[0]
     //Map the information
     userLocation.userCity = location_info.adminArea5
